@@ -29,6 +29,8 @@
 		4B3C184229D49EB400C5E55C /* Int+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3C184129D49EB400C5E55C /* Int+Ext.swift */; };
 		4B3C184429D49EC700C5E55C /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3C184329D49EC700C5E55C /* String+Ext.swift */; };
 		4B3C184629D49EE700C5E55C /* Image+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3C184529D49EE700C5E55C /* Image+App.swift */; };
+		4B3C184B29D4B72400C5E55C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B3C184929D4B72400C5E55C /* Colors.xcassets */; };
+		4B3C184C29D4B72400C5E55C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B3C184A29D4B72400C5E55C /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,9 @@
 		4B3C184129D49EB400C5E55C /* Int+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Ext.swift"; sourceTree = "<group>"; };
 		4B3C184329D49EC700C5E55C /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		4B3C184529D49EE700C5E55C /* Image+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+App.swift"; sourceTree = "<group>"; };
+		4B3C184829D4B67F00C5E55C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		4B3C184929D4B72400C5E55C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		4B3C184A29D4B72400C5E55C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +130,7 @@
 		4B3C17F529D3BD3C00C5E55C /* StarWars */ = {
 			isa = PBXGroup;
 			children = (
+				4B3C184829D4B67F00C5E55C /* Info.plist */,
 				4B3C184729D49F2100C5E55C /* Resources */,
 				4B3C183929D4944100C5E55C /* Screens */,
 				4B3C183429D3C00400C5E55C /* Extensions */,
@@ -231,6 +237,8 @@
 		4B3C184729D49F2100C5E55C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4B3C184929D4B72400C5E55C /* Colors.xcassets */,
+				4B3C184A29D4B72400C5E55C /* Images.xcassets */,
 				4B3C17FA29D3BD3C00C5E55C /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -340,6 +348,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B3C184B29D4B72400C5E55C /* Colors.xcassets in Resources */,
+				4B3C184C29D4B72400C5E55C /* Images.xcassets in Resources */,
 				4B3C17FE29D3BD3C00C5E55C /* Preview Assets.xcassets in Resources */,
 				4B3C17FB29D3BD3C00C5E55C /* Assets.xcassets in Resources */,
 			);
@@ -543,7 +553,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"StarWars/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = StarWars/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -571,7 +581,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"StarWars/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = StarWars/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
