@@ -1,36 +1,44 @@
-//
-//  StarWarsTests.swift
-//  StarWarsTests
-//
-//  Created by shweta dodiya on 2023-03-28.
-//
-
 import XCTest
 @testable import StarWars
+import Foundation
+import Combine
 
-final class StarWarsTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+final class StarWarTests: XCTestCase {
+    
+    func testPeopleApiWithTimeout() {
+        let timeout: Double = 5 // Seconds
+        let url = URL(string: "https://swapi.dev/api/people/?page=1")!
+        let configuration = URLSessionConfiguration.default
+        configuration.timeoutIntervalForResource = timeout
+        let session = URLSession(configuration: configuration)
+        let publisher = session.dataTaskPublisher(for: url)
+            .map { data, response in
+                return data
+            }
+            .decode(type: BasePaginationModel<CharacterInfo>.self, decoder: JSONDecoder())
+            .receive(on: DispatchQueue.main)
+        
+        let expectation = XCTestExpectation(description: "Response received")
+        let cancellable = publisher.sink(
+            receiveCompletion: { completion in
+                switch completion {
+                case .failure(let error):
+                    if let error = error as? URLError,
+                       error.code == .timedOut {
+                        XCTFail("Request Timeout: \(error.localizedDescription)")
+                    } else {
+                        XCTFail("Request failed with error: \(error.localizedDescription)")
+                    }
+                case .finished:
+                    expectation.fulfill()
+                }
+            },
+            receiveValue: { info in
+                XCTAssertGreaterThan(info.results.count, 0)
+            }
+        )
+        wait(for: [expectation], timeout: 60)
+        cancellable.cancel()
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
+    
 }
