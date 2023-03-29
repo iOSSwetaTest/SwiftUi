@@ -33,6 +33,7 @@ struct CharacterListScreen: View {
         List {
             ForEach(viewModel.characterList) { info in
                 NavigationLink(info.name) {
+                    CharacterDetailsScreen(info: info)
                 }.onAppear {
                     /// - Note: Load more not implemented, because we are sorting the list alphabetically
                     //viewModel.checkForNextPage(with: info)
